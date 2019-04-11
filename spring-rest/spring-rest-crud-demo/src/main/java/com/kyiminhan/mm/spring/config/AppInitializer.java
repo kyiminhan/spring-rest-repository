@@ -7,6 +7,16 @@ import javax.servlet.Filter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+/**
+ * The Class AppInitializer.</BR>
+ *
+ * @author KYIMINHAN </BR>
+ * @version 1.0 </BR>
+ * @since 2019/04/11 </BR>
+ *        spring-rest-crud-demo system </BR>
+ *        com.kyiminhan.mm.spring.config </BR>
+ *        AppInitializer.java </BR>
+ */
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	/*

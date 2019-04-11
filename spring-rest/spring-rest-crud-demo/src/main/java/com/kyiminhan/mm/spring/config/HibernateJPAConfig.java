@@ -24,6 +24,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+/**
+ * The Class HibernateJPAConfig.</BR>
+ *
+ * @author KYIMINHAN </BR>
+ * @version 1.0 </BR>
+ * @since 2019/04/11 </BR>
+ *        spring-rest-crud-demo system </BR>
+ *        com.kyiminhan.mm.spring.config </BR>
+ *        HibernateJPAConfig.java </BR>
+ */
 @Configuration
 @EnableTransactionManagement
 @PropertySource(value = ConfigConstant.DB_PROP_SOURCE)
@@ -111,6 +121,12 @@ public class HibernateJPAConfig implements WebMvcConfigurer {
 	@Value("${hibernate.cache.use_query_cache}")
 	private String hibernateCacheUseQueryCache;
 
+	/**
+	 * Gets the data source.
+	 *
+	 * @return the data source
+	 * @throws PropertyVetoException the property veto exception
+	 */
 	@Bean
 	public DataSource getDataSource() throws PropertyVetoException {
 		final ComboPooledDataSource dataSource = new ComboPooledDataSource();
@@ -121,6 +137,12 @@ public class HibernateJPAConfig implements WebMvcConfigurer {
 		return dataSource;
 	}
 
+	/**
+	 * Entity manager factory.
+	 *
+	 * @return LocalContainerEntityManagerFactoryBean
+	 * @throws PropertyVetoException the property veto exception
+	 */
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws PropertyVetoException {
 		final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -133,6 +155,12 @@ public class HibernateJPAConfig implements WebMvcConfigurer {
 		return em;
 	}
 
+	/**
+	 * Transaction manager.
+	 *
+	 * @param emf the emf
+	 * @return PlatformTransactionManager
+	 */
 	@Bean
 	public PlatformTransactionManager transactionManager(final EntityManagerFactory emf) {
 		final JpaTransactionManager transactionManager = new JpaTransactionManager();
@@ -140,11 +168,21 @@ public class HibernateJPAConfig implements WebMvcConfigurer {
 		return transactionManager;
 	}
 
+	/**
+	 * Exception translation.
+	 *
+	 * @return PersistenceExceptionTranslationPostProcessor
+	 */
 	@Bean
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
 
+	/**
+	 * Additional properties.
+	 *
+	 * @return Properties
+	 */
 	private Properties additionalProperties() {
 		final Properties properties = new Properties();
 		properties.put(AvailableSettings.DIALECT, this.hibernteDialet);

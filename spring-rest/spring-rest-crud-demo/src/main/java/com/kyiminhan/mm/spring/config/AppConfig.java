@@ -29,16 +29,40 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import lombok.Setter;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 
+/**
+ * The Class AppConfig.</BR>
+ *
+ * @author KYIMINHAN </BR>
+ * @version 1.0 </BR>
+ * @since 2019/04/11 </BR>
+ *        spring-rest-crud-demo system </BR>
+ *        com.kyiminhan.mm.spring.config </BR>
+ *        AppConfig.java </BR>
+ */
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy
 @ComponentScan(basePackages = { ConfigConstant.SCAN_PACKAGES_SPRING })
 @PropertySource(value = ConfigConstant.APPLICATION_PROP_SOURCE)
+
+/*
+ * (non-Javadoc)
+ *
+ * @see
+ * org.springframework.context.ApplicationContextAware#setApplicationContext(org
+ * .springframework.context.ApplicationContext)
+ */
 @Setter(onMethod = @__(@Autowired))
 public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 
+	/** The application context. */
 	private ApplicationContext applicationContext;
 
+	/**
+	 * Template resolver.
+	 *
+	 * @return SpringResourceTemplateResolver
+	 */
 	@Bean
 	public SpringResourceTemplateResolver templateResolver() {
 		final SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
@@ -51,6 +75,11 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 		return templateResolver;
 	}
 
+	/**
+	 * Template engine.
+	 *
+	 * @return SpringTemplateEngine
+	 */
 	@Bean
 	public SpringTemplateEngine templateEngine() {
 		final SpringTemplateEngine templateEngine = new SpringTemplateEngine();
@@ -61,6 +90,11 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 		return templateEngine;
 	}
 
+	/**
+	 * View resolver.
+	 *
+	 * @return ThymeleafViewResolver
+	 */
 	@Bean
 	public ThymeleafViewResolver viewResolver() {
 		final ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
@@ -69,22 +103,44 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 		return viewResolver;
 	}
 
+	/**
+	 * Java 8 time dialect.
+	 *
+	 * @return Java8TimeDialect
+	 */
 	@Bean
 	public Java8TimeDialect java8TimeDialect() {
 		return new Java8TimeDialect();
 	}
 
+	/**
+	 * Property sources placeholder configurer.
+	 *
+	 * @return PropertySourcesPlaceholderConfigurer
+	 */
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurer#
+	 * addResourceHandlers(org.springframework.web.servlet.config.annotation.
+	 * ResourceHandlerRegistry)
+	 */
 	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 		registry.addResourceHandler("/static/**").addResourceLocations("/static/").setCachePeriod(31556926);
 	}
 
+	/**
+	 * Locale resolver.
+	 *
+	 * @return LocaleResolver
+	 */
 	@Bean
 	public LocaleResolver localeResolver() {
 		final CookieLocaleResolver localeResolver = new CookieLocaleResolver();
@@ -94,6 +150,11 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 		return localeResolver;
 	}
 
+	/**
+	 * Locale change interceptor.
+	 *
+	 * @return LocaleChangeInterceptor
+	 */
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor() {
 		final LocaleChangeInterceptor changeInterceptor = new LocaleChangeInterceptor();
@@ -101,11 +162,23 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 		return changeInterceptor;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurer#
+	 * addInterceptors(org.springframework.web.servlet.config.annotation.
+	 * InterceptorRegistry)
+	 */
 	@Override
 	public void addInterceptors(final InterceptorRegistry registry) {
 		registry.addInterceptor(this.localeChangeInterceptor());
 	}
 
+	/**
+	 * Message source.
+	 *
+	 * @return MessageSource
+	 */
 	@Bean
 	public MessageSource messageSource() {
 		final ResourceBundleMessageSource bundleMessageSource = new ResourceBundleMessageSource();
