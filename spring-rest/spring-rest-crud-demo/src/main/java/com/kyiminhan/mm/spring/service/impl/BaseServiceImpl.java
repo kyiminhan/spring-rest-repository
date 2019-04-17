@@ -3,6 +3,7 @@ package com.kyiminhan.mm.spring.service.impl;
 import java.io.Serializable;
 import java.util.Collection;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kyiminhan.mm.spring.repo.BaseRepository;
@@ -16,6 +17,7 @@ import lombok.RequiredArgsConstructor;
  *
  * @param repository the repository
  */
+@Service
 @RequiredArgsConstructor
 public abstract class BaseServiceImpl<T extends Serializable> implements BaseService<T> {
 
