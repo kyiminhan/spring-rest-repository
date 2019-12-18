@@ -26,9 +26,9 @@
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<!-- spring framework and spring security version -->
 		<spring.version>5.1.5.RELEASE</spring.version>
-		<spring.secrity.version>5.1.4.RELEASE</spring.secrity.version>
+		<spring.secrity.version>5.1.5.RELEASE</spring.secrity.version>
 		<aspectj.version>1.9.2</aspectj.version>
-		<spring-data.version>2.1.6.RELEASE</spring-data.version>
+		<spring-data.version>2.1.8.RELEASE</spring-data.version>
 		<!-- Hibernate c3p0 version -->
 		<hibernate.version>5.4.1.Final</hibernate.version>
 		<hibernate.search.orm.version>5.11.1.Final</hibernate.search.orm.version>
@@ -37,7 +37,7 @@
 		<ehcache.version>3.7.0</ehcache.version>
 		<javax.validation.version>2.0.1.Final</javax.validation.version>
 		<javax.transaction.version>1.3</javax.transaction.version>
-		<c3p0.version>0.9.5.3</c3p0.version>
+		<c3p0.version>0.9.5.4</c3p0.version>
 		<!-- lombok logback version -->
 		<lombok.version>1.18.6</lombok.version>
 		<java-uuid.version>3.2.0</java-uuid.version>
