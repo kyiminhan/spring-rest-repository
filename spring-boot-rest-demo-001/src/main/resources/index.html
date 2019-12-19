@@ -68,7 +68,7 @@
 	<script>
 		var app = angular.module('myApp', []);
 		app.controller('customersCtrl', function($scope, $http) {
-			$http.get("http://192.168.1.50:8080/account/list").then(
+			$http.get("http://localhost:8080/account/list").then(
 					function(response) {
 						$scope.accounts = response.data;
 					});
