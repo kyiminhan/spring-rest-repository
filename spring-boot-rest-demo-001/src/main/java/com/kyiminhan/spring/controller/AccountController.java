@@ -43,7 +43,7 @@ public class AccountController {
 		final Collection<Account> collections = this.accService.findAll();
 		collections.forEach(account -> {
 			final AccountDto accountDto = AccountDto.builder().build();
-			BeanUtils.copyProperties(accountDto, account);
+			BeanUtils.copyProperties(account, accountDto);
 			list.add(accountDto);
 		});
 
