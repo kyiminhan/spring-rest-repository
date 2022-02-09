@@ -30,7 +30,7 @@
 		<aspectj.version>1.9.2</aspectj.version>
 		<spring-data.version>2.1.8.RELEASE</spring-data.version>
 		<!-- Hibernate c3p0 version -->
-		<hibernate.version>5.4.1.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 		<hibernate.search.orm.version>5.11.1.Final</hibernate.search.orm.version>
 		<hibernate.validator.version>6.0.15.Final</hibernate.validator.version>
 		<hibernate.annotation.version>3.5.6-Final</hibernate.annotation.version>
