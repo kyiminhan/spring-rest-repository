@@ -28,7 +28,7 @@
 		<spring.version>5.1.5.RELEASE</spring.version>
 		<spring.secrity.version>5.1.5.RELEASE</spring.secrity.version>
 		<aspectj.version>1.9.2</aspectj.version>
-		<spring-data.version>2.1.8.RELEASE</spring-data.version>
+		<spring-data.version>2.1.9.RELEASE</spring-data.version>
 		<!-- Hibernate c3p0 version -->
 		<hibernate.version>5.4.1.Final</hibernate.version>
 		<hibernate.search.orm.version>5.11.1.Final</hibernate.search.orm.version>
